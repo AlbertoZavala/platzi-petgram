@@ -1,13 +1,13 @@
-const HtmlWebpackPlugin = require('html-webpack-plugin');
+const HtmlWebpackPlugin = require('html-webpack-plugin')
 
 module.exports = {
   output: {
-    filename: 'app.boundle.js',
+    filename: 'app.boundle.js'
   },
   plugins: [
     new HtmlWebpackPlugin({
       template: 'src/index.html'
-    }),
+    })
   ],
   module: {
     rules: [
