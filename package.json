@@ -35,17 +35,18 @@
     "@vercel/client": "^10.2.2",
     "babel-eslint": "^10.1.0",
     "react": "^17.0.2",
-    "react-dom": "^17.0.2"
-  },  
+    "react-dom": "^17.0.2",
+    "styled-components": "^5.3.1"
+  },
   "eslintConfig": {
     "extends": [
       "./node_modules/semistandard/eslintrc.json"
     ]
-  },  
+  },
   "semistandard": {
-   "parser": "babel-eslint",
-   "ignore": [
-    "/api/**"    
-  ]
-  }  
+    "parser": "babel-eslint",
+    "ignore": [
+      "/api/**"
+    ]
+  }
 }
