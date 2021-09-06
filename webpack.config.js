@@ -2,7 +2,8 @@ const HtmlWebpackPlugin = require('html-webpack-plugin');
 
 module.exports = {
   output: {
-    filename: 'app.boundle.js'
+    filename: 'app.boundle.js',
+    publicPath: '/'
   },
   plugins: [
     new HtmlWebpackPlugin({
