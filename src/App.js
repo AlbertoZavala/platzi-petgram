@@ -21,11 +21,11 @@ export const App = () => {
     {
       detailId
       ?
-        <PhotoCardWithQuery id={detailId} />
+        <PhotoCardWithQuery categoryId={detailId} />
       :
       <Router>
         <Home path='/'/>
-        <Home path='/pet/:id'/>
+        <Home path='/pet/:categoryId'/>
       </Router>
     }    
   </>
