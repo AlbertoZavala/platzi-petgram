@@ -1,18 +1,31 @@
-import React from "react";
-import Context from "../Context";
-import { UserForm } from "../components/UserForm";
+import React from 'react'
+import Context from '../Context'
+import { UserForm } from '../components/UserForm'
+import { useRegisterMutation } from '../container/RegisterMutation'
 
-export const NotRegisteredUser = () => (
-  <Context.Consumer>
-    {
-      ({ activateAuth }) => {
-        return(
-          <>
-            <UserForm title='Registrarse' onSubmit={activateAuth}/>
-            <UserForm title='Iniciar Sesión' onSubmit={activateAuth}/>
-          </>
-        )
-      }
-    }    
-  </Context.Consumer>
-)
+
+export const NotRegisteredUser = () => {
+    const { registerMutation } = useRegisterMutation()
+    
+    return (
+        <Context.Consumer>
+            {
+                ({activateAuth}) => {
+                    const onSubmit = ({email, password}) => {
+                        const input = { email, password }
+                        const variables = { input }
+                        registerMutation({ variables })
+                        .then(activateAuth)
+                    }
+                    return <>
+                        <UserForm onSubmit={onSubmit} title='Registrarse'/>
+                        <UserForm onSubmit={activateAuth} title='Iniciar Sesión'/>
+                    </>
+                }
+            }
+        </Context.Consumer>
+        // <h1>NotRegisteredUser</h1>
+    )
+}
+
+
