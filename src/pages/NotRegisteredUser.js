@@ -1,11 +1,11 @@
 import React from 'react'
 import Context from '../Context'
 import { UserForm } from '../components/UserForm'
-import { useRegisterMutation } from '../container/RegisterMutation'
+import { useRegisterUser } from '../hooks/useRegisterUser'
 
 
 export const NotRegisteredUser = () => {
-    const { registerMutation } = useRegisterMutation()
+    const { register, data, loading, error} = useRegisterUser('')
     
     return (
         <Context.Consumer>
@@ -14,12 +14,15 @@ export const NotRegisteredUser = () => {
                     const onSubmit = ({email, password}) => {
                         const input = { email, password }
                         const variables = { input }
-                        registerMutation({ variables })
+                        register({ variables })
                         .then(activateAuth)
                     }
+
+                    const errorMsg = error && 'El usuario ya existe o hay algún problema';
+
                     return <>
-                        <UserForm onSubmit={onSubmit} title='Registrarse'/>
-                        <UserForm onSubmit={activateAuth} title='Iniciar Sesión'/>
+                        <UserForm disabled={loading} error={errorMsg} onSubmit={onSubmit} title='Registrarse'/>
+                        <UserForm disabled={loading} error={errorMsg} onSubmit={activateAuth} title='Iniciar Sesión'/>
                     </>
                 }
             }
