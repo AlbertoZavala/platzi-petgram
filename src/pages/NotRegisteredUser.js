@@ -20,13 +20,20 @@ export const NotRegisteredUser = () => {
                       const input = { email, password }
                       const variables = { input }
                       register({ variables })
-                      .then(activateAuth)
+                      .then(({data}) => {
+                          const { signup } = data
+                        activateAuth(signup)
+                      })
                   }
+
                   const loginAction = ({email, password}) => {
                       const input = { email, password }
                       const variables = { input }
                       login({ variables })
-                      .then(activateAuth)
+                      .then(({data}) => {
+                          const { login } = data
+                        activateAuth(login)
+                      })
                   }
                   
                   return <>

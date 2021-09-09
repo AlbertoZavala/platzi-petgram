@@ -23,8 +23,7 @@ export const PhotoCard = ({ id, likes = 0, src = DEFAULT_IMAGE }) => {
       }
     })
     setLiked(!liked)
-  }
-  // console.log('{ mutation, mutationLoading, mutationError }', { mutation, mutationLoading, mutationError })
+  }  
 
   return (
     <Article ref={element}>
