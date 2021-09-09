@@ -1,16 +1,14 @@
 import React, { useState, useEffect } from "react";
-import { ListOfPhotoCards } from "../components/ListOfPhotoCards";
-import { useGetFavorites} from './../hooks/useGetFavorites'
+import { useGetFavorites} from './../hooks/useGetFavorites';
+import { ListOfFavs } from "../components/ListOfFavs";
 
 export const Favs = () => {
   const { data, loading, error } = useGetFavorites()
   const [ favs, setFavs ] = useState([])
-
+  
   useEffect(() => {
-    if (data) setFavs(data.favs)
-    console.log(data)
-    console.log(favs)
+    if (data) setFavs(data.favs)    
   }, [data])
 
-  return <ListOfPhotoCards list={favs} error={error} loading={loading} />
+  return <ListOfFavs favs={favs} error={error} loading={loading} />
 }
