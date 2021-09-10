@@ -3,7 +3,7 @@ import { useGetFavorites} from './../hooks/useGetFavorites';
 import { ListOfFavs } from "../components/ListOfFavs";
 import { Layout } from "../components/Layout"; 
 
-export const Favs = () => {
+export default () => {
   const { data, loading, error } = useGetFavorites()
   const [ favs, setFavs ] = useState([])
   

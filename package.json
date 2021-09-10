@@ -7,7 +7,8 @@
     "build": "webpack",
     "lint": "semistandard --fix",
     "dev": "webpack-dev-server --mode=development --history-api-fallback",
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "serve:dev": "webpack --mode 'development' && npx serve dist -s --open"
   },
   "repository": {
     "type": "git",
